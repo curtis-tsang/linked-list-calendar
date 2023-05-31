@@ -5,7 +5,7 @@
 #include <fstream>
 using namespace std;
 
-string file = ""; // path to a txt file for storing data
+string file = "empty"; // path to a txt file for storing data, replace "empty" before running
 const unsigned int items_in_event = 7;
 
 struct Event{
@@ -330,6 +330,8 @@ int main(){
     string login_time = ctime(&now);
     cout << endl << "The time now is : " << login_time <<endl;
     tdy_date(login_time, tdy);
+    
+    if (file == "empty"){cout << "You haven't set the .txt file for storing data" << endl; return 0;}
 
     Event* head = data_intake(file);
     while(repeat_bool_int){
